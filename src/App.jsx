@@ -717,7 +717,7 @@ export default function App() {
               </h3>
 
               {/* Visual Workflow diagram */}
-              <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-4 max-w-4xl mx-auto">
+              <div className="flex flex-col print:flex-row md:flex-row items-center justify-between gap-4 py-4 max-w-4xl mx-auto">
                 {[
                   { role: 'Participant', color: 'border-gray-500 text-gray-300', icon: '👤', action: 'Create & Self-Review' },
                   { role: 'Department Lead', color: 'border-yellow-500 text-yellow-400', icon: '🧑‍💻', action: 'Code Audit & QA Run' },
@@ -725,13 +725,13 @@ export default function App() {
                   { role: 'Final Submission', color: 'border-brand-green text-brand-green', icon: '📦', action: 'Merge & Archive' }
                 ].map((step, idx) => (
                   <React.Fragment key={idx}>
-                    <div className={`w-full md:w-48 bg-[#151515] border ${step.color} rounded-xl p-4 text-center shadow-md relative print:border-slate-400 print:text-black`}>
-                      <span className="text-2xl block mb-2">{step.icon}</span>
-                      <h4 className="text-sm font-bold uppercase tracking-wide print:text-black">{step.role}</h4>
-                      <p className="text-[10px] text-gray-500 mt-1 uppercase font-mono tracking-wider">{step.action}</p>
+                    <div className={`w-full print:flex-1 md:w-48 bg-[#151515] border ${step.color} rounded-xl p-4 print:p-2.5 text-center shadow-md relative print:border-slate-400 print:text-black print-avoid-break`}>
+                      <span className="text-2xl print:text-lg block mb-2 print:mb-1">{step.icon}</span>
+                      <h4 className="text-sm print:text-xs font-bold uppercase tracking-wide print:text-black">{step.role}</h4>
+                      <p className="text-[10px] print:text-[8px] text-gray-500 mt-1 uppercase font-mono tracking-wider">{step.action}</p>
                     </div>
                     {idx < 3 && (
-                      <div className="text-gray-600 font-mono text-xl py-2 md:py-0 rotate-90 md:rotate-0 flex justify-center print:text-slate-400">
+                      <div className="text-gray-600 font-mono text-xl py-2 print:py-0 md:py-0 rotate-90 print:rotate-0 md:rotate-0 flex justify-center print:text-slate-400">
                         <ArrowRight className="w-6 h-6 text-brand-green print:text-black" />
                       </div>
                     )}
@@ -740,7 +740,7 @@ export default function App() {
               </div>
 
               <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-[#151515] p-4 rounded-lg border border-[#2E2E2E] print:border-slate-300">
+                <div className="bg-[#151515] p-4 rounded-lg border border-[#2E2E2E] print:border-slate-300 print-avoid-break">
                   <span className="text-xs font-bold text-brand-green uppercase font-mono block mb-2 print:text-black">SLA Processing Times</span>
                   <ul className="text-xs text-gray-400 space-y-2 print:text-slate-700">
                     <li>&bull; <strong className="text-gray-300 print:text-black">Lead Initial Review:</strong> 24 Hours from PR creation.</li>
@@ -748,7 +748,7 @@ export default function App() {
                     <li>&bull; <strong className="text-gray-300 print:text-black">Final Merge/Deployment:</strong> 8 Hours from approvals signoff.</li>
                   </ul>
                 </div>
-                <div className="bg-[#151515] p-4 rounded-lg border border-[#2E2E2E] print:border-slate-300">
+                <div className="bg-[#151515] p-4 rounded-lg border border-[#2E2E2E] print:border-slate-300 print-avoid-break">
                   <span className="text-xs font-bold text-brand-green uppercase font-mono block mb-2 print:text-black">Escalation Thresholds</span>
                   <ul className="text-xs text-gray-400 space-y-2 print:text-slate-700">
                     <li>&bull; <strong className="text-gray-300 print:text-black">Unresolved Feedback (48 hours):</strong> Automatic level 1 escalation.</li>
